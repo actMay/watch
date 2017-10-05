@@ -13,50 +13,12 @@
 		
 		#canvas {
 			margin: 200px auto;
-			/*background: black;*/
 			margin-left: 400px;
 		}
 	</style>
-
+	<script src="js/watch.js" type="text/javascript" charset="utf-8"></script>
 	<body>
 		<canvas id="canvas" width="530" height="334"></canvas>
-		<script type="text/javascript">
-			var canvas = document.getElementById('canvas')
-			var context = canvas.getContext('2d')
-			var watchWidth = 195 //外圈宽度
-			var watchHeight = 228 //外圈长度
-			var watchOuterRadius = 30 //外圈圆形矩形框半径
-
-			//背景线性渐变
-			var bg = context.createLinearGradient(0, 0, 0, canvas.height)
-			bg.addColorStop(0, '#000000')
-			bg.addColorStop(1, '#393b3f')
-
-			context.fillStyle = bg
-			context.fillRect(0, 0, canvas.width, canvas.height)
-
-			function drawRect(watchWidth, watchHeight, watchOuterRadius, color, lineWidth) {
-				//外圈，圆形矩形框
-				context.strokeStyle = color
-				context.lineWidth = lineWidth
-				context.beginPath()
-				context.moveTo((canvas.width - watchWidth) / 2 + watchOuterRadius, (canvas.height - watchHeight) / 2)
-				context.lineTo((canvas.width - watchWidth) / 2 + watchWidth - watchOuterRadius, (canvas.height - watchHeight) / 2)
-				context.stroke()
-				context.arcTo((canvas.width - watchWidth) / 2 + watchWidth, (canvas.height - watchHeight) / 2, (canvas.width - watchWidth) / 2 + watchWidth, (canvas.height - watchHeight) / 2 + watchOuterRadius, watchOuterRadius)
-				context.lineTo((canvas.width - watchWidth) / 2 + watchWidth, (canvas.height - watchHeight) / 2 + watchHeight - watchOuterRadius)
-				context.arcTo((canvas.width - watchWidth) / 2 + watchWidth, (canvas.height - watchHeight) / 2 + watchHeight, (canvas.width - watchWidth) / 2 + watchWidth - watchOuterRadius, (canvas.height - watchHeight) / 2 + watchHeight, watchOuterRadius)
-				context.lineTo((canvas.width - watchWidth) / 2 + watchOuterRadius, (canvas.height - watchHeight) / 2 + watchHeight)
-				context.arcTo((canvas.width - watchWidth) / 2, (canvas.height - watchHeight) / 2 + watchHeight, (canvas.width - watchWidth) / 2, (canvas.height - watchHeight) / 2 + watchHeight - watchOuterRadius, watchOuterRadius)
-				context.lineTo((canvas.width - watchWidth) / 2, (canvas.height - watchHeight) / 2 + watchOuterRadius)
-				context.arcTo((canvas.width - watchWidth) / 2, (canvas.height - watchHeight) / 2, (canvas.width - watchWidth) / 2 + watchOuterRadius, (canvas.height - watchHeight) / 2, watchOuterRadius)
-				context.stroke()
-				context.closePath()
-			}
-			drawRect(watchWidth, watchHeight, watchOuterRadius,'494b4d',3);
-			drawRect(watchWidth-10, watchHeight-10, watchOuterRadius-5,'white',5)
-			drawRect(watchWidth-16, watchHeight-16, watchOuterRadius-2,'green',2);
-		</script>
 	</body>
 
 </html>
